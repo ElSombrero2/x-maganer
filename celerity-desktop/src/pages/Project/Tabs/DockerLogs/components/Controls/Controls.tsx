@@ -2,7 +2,7 @@ import { LegacyRef } from "react"
 import { DockerServices } from "../../../../../../app/types/docker"
 import { State } from "../../Provider"
 import { Button } from "@/ui/components/ui/button"
-import { Input } from "@/ui/components/ui/input"
+import { Select, SelectTrigger, SelectContent, SelectItem } from "@/ui/components/ui/select"
 
 export interface IControls {
     form: LegacyRef<HTMLFormElement> | null,
@@ -27,7 +27,21 @@ export const Controls = ({form, started, allowLogs, onStart, onStop, services, l
             <Button variant="destructive" disabled={disabled} onClick={onClear}>
                 Clear
             </Button>
-            <Input className="w-[250px]" placeholder="Services" />
+            <div className="w-[200px]">
+                <Select>
+                    <SelectTrigger>
+                        Filter
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="*">*</SelectItem>
+                        {services.map((e) => (
+                            <SelectItem value={e.name}>
+                                {e.name}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
         </form>
     )
 }

@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import { DockerLogs } from "./Tabs/DockerLogs/DockerLogs";
 import { Services } from "./Tabs/Services/Services";
 import moment from "moment";
+import { Button } from "@/ui/components/ui/button";
 
 export const Project = () => {
     const { id } = useParams<{id: string}>()
@@ -19,7 +20,7 @@ export const Project = () => {
     const [current, setCurrent] = useState<string | undefined>()
 
     return (
-        <div className="w-full py-5 px-5 gap-5 flex flex-col justify-end">
+        <div className="w-full py-5 px-5 gap-4 flex flex-col justify-end">
             <h3>Welcome <span className="text-destructive">{configuration?.user?.login},</span></h3>
             <div>
                 <h1>{project?.name}</h1>
@@ -40,6 +41,18 @@ export const Project = () => {
                         board={board}
                         onTaskMove={onTaskMove}
                     />}
+                </TabItem>
+                <TabItem className="h-full" title="Graphics">
+                    <div className="flex flex-col items-center justify-center w-full h-full gap-8">
+                        <p className="text-center text-muted-foreground">
+                            Connect with Figma to access to this section
+                        </p>
+                        <Button variant="outline">
+                            <i className="fab fa-figma"></i>
+                            &nbsp;
+                            Login With Figma
+                        </Button>
+                    </div>
                 </TabItem>
                 <TabItem className="h-full" title="Figma">
                     <Figma />

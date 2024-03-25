@@ -26,12 +26,12 @@ export function Board({ board, factory, onTaskMove }: IBoard){
 
     return (
         <div className="board-wrapper w-full h-full" ref={parent}>
-            <div className="board flex gap-16" onDragOver={drop}>
+            <div className="board flex gap-8" onDragOver={drop}>
                 {Object.keys(board).sort((a, b) => board[a].id - board[b].id).map((key, boardIndex) => (
                     <div
                         onDrop={(e) => onTaskMove && board[key].todos.length === 0 && onTaskMove(getOrigin(e), {key})}
                         key={`${key}-${boardIndex}`}
-                        className="column px-4 flex flex-col"
+                        className="column rounded-md border p-4 flex flex-col"
                     >
                         {factory.title(key)}
                         {board[key].todos.map((data: any, columnIndex: number) => (
