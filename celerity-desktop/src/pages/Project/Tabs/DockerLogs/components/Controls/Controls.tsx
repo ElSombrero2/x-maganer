@@ -28,7 +28,7 @@ export const Controls = ({form, started, allowLogs, onStart, onStop, services, l
                 Clear
             </Button>
             <div className="w-[200px]">
-                <Select>
+                <Select disabled={disabled}>
                     <SelectTrigger>
                         Filter
                     </SelectTrigger>
