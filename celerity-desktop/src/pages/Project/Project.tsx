@@ -1,22 +1,20 @@
 import { Tab } from "../../shared/Tab/Tab";
 import './Project.scss'
 import { TabItem } from "../../shared/Tab/TabItem/TabItem";
-import { Title } from "./components/Board/Title/Title";
-import { Body } from "./components/Board/Body/Body";
 import { useProject } from "./Provider";
 import { Figma } from "./Tabs/Figma/Figma";
 import { useState } from "react";
 import { Documentation } from "./Tabs/Documentations/Documentation";
-import { Board } from "../../shared/Board/Board";
 import { useParams } from "react-router-dom";
 import { DockerLogs } from "./Tabs/DockerLogs/DockerLogs";
 import { Services } from "./Tabs/Services/Services";
 import moment from "moment";
 import { Button } from "@/ui/components/ui/button";
+import { ProjectBoard } from "./Tabs/ProjectBoard/ProjectBoard";
 
 export const Project = () => {
     const { id } = useParams<{id: string}>()
-    const { onTaskMove, board, configuration, readme, project } = useProject(id)
+    const { configuration, readme, project, onTaskMove, board } = useProject(id)
     const [current, setCurrent] = useState<string | undefined>()
 
     return (
@@ -36,11 +34,7 @@ export const Project = () => {
                 onItemClick={(title) => setCurrent(title)}
             >
                 <TabItem className="h-full" title="Board">
-                    {board && <Board
-                        factory={{title: Title, body: Body}}
-                        board={board}
-                        onTaskMove={onTaskMove}
-                    />}
+                    <ProjectBoard board={board} onTaskMove={onTaskMove} />
                 </TabItem>
                 <TabItem className="h-full" title="Graphics">
                     <div className="flex flex-col items-center justify-center w-full h-full gap-8">

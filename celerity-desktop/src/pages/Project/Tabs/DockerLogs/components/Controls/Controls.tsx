@@ -1,8 +1,8 @@
-import { LegacyRef } from "react"
-import { DockerServices } from "../../../../../../app/types/docker"
-import { State } from "../../Provider"
-import { Button } from "@/ui/components/ui/button"
 import { Select, SelectTrigger, SelectContent, SelectItem } from "@/ui/components/ui/select"
+import { State } from "@/pages/Project/Provider/DockerLogs"
+import { DockerServices } from "@/app/types/docker"
+import { Button } from "@/ui/components/ui/button"
+import { LegacyRef } from "react"
 
 export interface IControls {
     form: LegacyRef<HTMLFormElement> | null,

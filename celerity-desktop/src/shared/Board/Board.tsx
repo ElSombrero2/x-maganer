@@ -1,9 +1,7 @@
-import React, { useRef, useState } from "react"
+import React, { useRef } from "react"
 import { Draggable } from "./Draggable/Draggable"
 import './Board.scss'
 import { Todos } from "../../app/types/kanban"
-import { Textarea } from "@/ui/components/ui/textarea"
-import { Button } from "@/ui/components/ui/button"
 
 export type BoardKeyIndex = {index?: number, key: string}
 
@@ -12,8 +10,9 @@ export interface IBoard {
     factory: {
         title: (key: string) => React.ReactElement,
         body: (data: any) => React.ReactElement,
+        action: (data: {title: string, index: number}) => React.ReactElement
     },
-    onTaskMove?: (origin: BoardKeyIndex, target: BoardKeyIndex) => void
+    onTaskMove?: (origin: BoardKeyIndex, target: BoardKeyIndex) => void,
 }
 
 const getOrigin = (e: React.DragEvent<HTMLDivElement>) => {
@@ -25,10 +24,6 @@ const getOrigin = (e: React.DragEvent<HTMLDivElement>) => {
 export function Board({ board, factory, onTaskMove }: IBoard){
     const parent = useRef<HTMLDivElement>(null)
     const drop = (e: React.DragEvent<HTMLDivElement>) => e.preventDefault()
-    const [isWriting, setIsWriting] = useState<boolean>(false)
-    const submit = () => {
-        setIsWriting(false)
-    }
 
     return (
         <div className="board-wrapper w-full h-full" ref={parent}>
@@ -53,17 +48,7 @@ export function Board({ board, factory, onTaskMove }: IBoard){
                                 {factory.body(data)}
                             </Draggable>
                         ))}
-                        {!isWriting && <Button variant="ghost" onClick={() => setIsWriting(true)}>
-                            <i className="fa fa-add"></i>
-                            &nbsp;Add Card
-                        </Button>}
-                        {isWriting && (
-                            <div className="flex gap-5">
-                                <Textarea className="resize-none bg-accent" placeholder="Write some task...">
-                                </Textarea>
-                                <Button onClick={submit}>Submit</Button>
-                            </div>
-                        )}
+                        {factory.action({title: key, index: boardIndex})}
                     </div>       
                 ))}
             </div>
