@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { invoke } from "@tauri-apps/api"
 import { appWindow } from "@tauri-apps/api/window"
 import { listen } from "@tauri-apps/api/event"
-import { useAppSelector } from "../../../../../app/store"
+import { useAppSelector } from "@/app/store"
 
 export enum State {
     Started = 'Stop',

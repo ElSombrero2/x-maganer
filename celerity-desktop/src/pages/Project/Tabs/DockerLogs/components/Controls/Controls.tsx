@@ -1,6 +1,8 @@
+import { Select, SelectTrigger, SelectContent, SelectItem } from "@/ui/components/ui/select"
+import { State } from "@/pages/Project/Provider/DockerLogs"
+import { DockerServices } from "@/app/types/docker"
+import { Button } from "@/ui/components/ui/button"
 import { LegacyRef } from "react"
-import { DockerServices } from "../../../../../../app/types/docker"
-import { State } from "../../Provider"
 
 export interface IControls {
     form: LegacyRef<HTMLFormElement> | null,
@@ -19,22 +21,27 @@ export const Controls = ({form, started, allowLogs, onStart, onStop, services, l
 
     return (
         <form ref={form} onSubmit={e => e.preventDefault()}>
-            <button disabled={disabled} onClick={() => started ? onStop() : onStart()}>
+            <Button variant="outline" disabled={disabled} onClick={() => started ? onStop() : onStart()}>
                 {label}
-            </button>
-            <button disabled={disabled} onClick={onClear}>
+            </Button>
+            <Button variant="destructive" disabled={disabled} onClick={onClear}>
                 Clear
-            </button>
-            <select name="service" disabled={!allowLogs || started}>
-                <option value="*" style={{color: 'black'}}>
-                    -- All --
-                </option>
-                {services.map((service, index) => (
-                    <option style={{color: 'black'}} key={`${service.name}-${index}`} value={service.name}>
-                        {service.name}
-                    </option>
-                ))}
-            </select>
+            </Button>
+            <div className="w-[200px]">
+                <Select disabled={disabled}>
+                    <SelectTrigger>
+                        Filter
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="*">*</SelectItem>
+                        {services.map((e) => (
+                            <SelectItem value={e.name}>
+                                {e.name}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
         </form>
     )
 }
