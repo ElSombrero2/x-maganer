@@ -1,0 +1,10 @@
+{
+    "name": "nodets",
+    "author": "ElSombrero2",
+    "path": {
+        "source": "GITHUB",
+        "uri": "https://github.com/celerity-io/nodets.git",
+        "branch": "main"
+    },
+    "description": "A simple Node Express Typescript Template"
+}

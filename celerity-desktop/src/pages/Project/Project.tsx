@@ -1,5 +1,5 @@
+import moment from "moment";
 import { Tab } from "../../shared/Tab/Tab";
-import './Project.scss'
 import { TabItem } from "../../shared/Tab/TabItem/TabItem";
 import { useProject } from "./Provider";
 import { Figma } from "./Tabs/Figma/Figma";
@@ -8,7 +8,8 @@ import { Documentation } from "./Tabs/Documentations/Documentation";
 import { useParams } from "react-router-dom";
 import { DockerLogs } from "./Tabs/DockerLogs/DockerLogs";
 import { Services } from "./Tabs/Services/Services";
-import moment from "moment";
+import './Project.scss'
+
 import { Button } from "@/ui/components/ui/button";
 import { ProjectBoard } from "./Tabs/ProjectBoard/ProjectBoard";
 

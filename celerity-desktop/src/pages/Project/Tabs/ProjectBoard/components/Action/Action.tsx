@@ -1,13 +1,19 @@
 import { Button } from "@/ui/components/ui/button"
 import { Textarea } from "@/ui/components/ui/textarea"
-import { useState } from "react"
+import { useRef, useState } from "react"
 
-export const Action = ({title, index}: {title: string, index: number}) => {
-
+export const Action = ({title}: {title: string, index: number}) => {
     const [isWriting, setIsWriting] = useState<boolean>(false)
+    const text = useRef<HTMLTextAreaElement>(null)
     const submit = () => {
         setIsWriting(false)
-        console.log(index, title)
+        const textarea = text.current
+        if(textarea){
+            const obj = {
+                board: title,
+                title: textarea.nodeValue
+            }
+        }
     }
 
     return (
@@ -19,7 +25,7 @@ export const Action = ({title, index}: {title: string, index: number}) => {
             </Button>}
             {isWriting && (
                 <div className="flex gap-5">
-                    <Textarea className="resize-none bg-accent" placeholder="Write some task...">
+                    <Textarea ref={text} className="resize-none bg-accent" placeholder="Write some task...">
                     </Textarea>
                     <Button onClick={submit}>Submit</Button>
                 </div>
