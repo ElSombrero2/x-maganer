@@ -119,6 +119,15 @@ You can add more templates by adding files templates to
 this is only the development public repository but a beta version will coming soon.  
 
 # Todo
+- [ ] Project Information to the specified project
+- [ ] Figma
+    - [ ] Get figma assets:
+        - [ ] Images
+        - [ ] Colors
+        - [ ] Fonts
+        - [ ] Components
+        - [ ] Pages
+    - [ ] Add figma model
 - [x] Initialize a project with differents options
     - [x] Choose a project template
     - [x] Create a Github repository and push it in Github
@@ -133,7 +142,7 @@ this is only the development public repository but a beta version will coming so
 - [ ] Basics projects template
     - [x] Node.js (Javascript / Typescript)
     - [ ] Nest.js
-    - [ ] Angular
+    - [x] Angular
     - [ ] React
     - [ ] Vue.js
     - [ ] Svelt
