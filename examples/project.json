@@ -4,6 +4,7 @@
     "created_at": "Date",
     "docker": "boolean",
     "based_template": "String",
+    "model": "string",
     "board": {
         "String": [
             {

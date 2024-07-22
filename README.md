@@ -119,7 +119,7 @@ You can add more templates by adding files templates to
 this is only the development public repository but a beta version will coming soon.  
 
 # Todo
-- [ ] Project Information to the specified project
+- [x] Project Information to the specified project
 - [ ] Figma
     - [ ] Get figma assets:
         - [ ] Images
@@ -141,18 +141,18 @@ this is only the development public repository but a beta version will coming so
             - On Github Repository (Only github for the first version but all the rests will coming soon)
 - [ ] Basics projects template
     - [x] Node.js (Javascript / Typescript)
-    - [ ] Nest.js
+    - [x] Nest.js
     - [x] Angular
-    - [ ] React
-    - [ ] Vue.js
-    - [ ] Svelt
-    - [ ] Solid
-    - [ ] C++
-    - [ ] Rust
-    - [ ] Tauri
-        - [ ] React (Javascript / Typescript)
-        - [ ] Angular
-        - [ ] Vue.js
+    - [x] React
+    - [x] Vue.js
+    - [x] Svelt
+    - [x] Solid
+    - [x] C++
+    - [x] Rust
+    - [x] Tauri
+        - [x] React (Javascript / Typescript)
+        - [x] Angular
+        - [x] Vue.js
     - [ ] Next.js (Javascript / Typescript)
     - [ ] Nuxt.js (Javascript / Typescript)
 - [x] Show the list of your project templates
@@ -181,3 +181,4 @@ this is only the development public repository but a beta version will coming so
             - If VS Code is not found then open the default browser to VS Code website
         - Button: Browse File
         - Short image or Logo of the project (if None then show the default image)
+    - [ ] Add loading skeleton
